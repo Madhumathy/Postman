@@ -2,7 +2,7 @@ name: Run Postman Tests
 
 on:
   push:
-    branches: [ main ]
+    branches: [ postman_Madhu ]
 
 jobs:
   postman-tests:
