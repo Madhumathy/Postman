@@ -1,0 +1,29 @@
+name: Run Postman Tests
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  postman-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install Newman
+      run: npm install -g newman
+
+    - name: Run Postman Tests
+      run: |
+        newman run PostmanSession.postman_collection.json -g workspace.postman_globals.json -d testdata.csv -e QA.postman_environment.json --reporters cli,json --reporter-json-export results.json
+
+    - name: Run Postman Tests
+      run: |
+        newman run your-collection.json -e your-environment.json --reporters cli,json --reporter-json-export results.json
