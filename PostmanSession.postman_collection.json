@@ -206,69 +206,6 @@
 			"response": []
 		},
 		{
-			"name": "Read Copy",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"try{\r",
-							"pm.test('Validation of response status code as \"200\"', function() {\r",
-							"    pm.expect(pm.response.code).to.eql(200)\r",
-							"})\r",
-							"\r",
-							"// firstname from create method and read method are same or not \r",
-							"\r",
-							"pm.test('Validation of firstname', function(){\r",
-							"    const firstname_create = pm.collectionVariables.get('firstname')\r",
-							"    pm.expect(firstname_create).to.eql(pm.response.json().firstname)\r",
-							"})\r",
-							"\r",
-							"}\r",
-							"\r",
-							"catch(error){\r",
-							"    console.log(error.message)\r",
-							"    console.log(\"Execution failure\")\r",
-							"}"
-						],
-						"type": "text/javascript",
-						"packages": {},
-						"requests": {}
-					}
-				}
-			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://restful-booker.herokuapp.com/booking/{{id}}",
-					"protocol": "https",
-					"host": [
-						"restful-booker",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"booking",
-						"{{id}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Auth Copy",
 			"event": [
 				{
